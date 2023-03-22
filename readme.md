@@ -35,6 +35,7 @@ To use this package, need:
 * [Eigen3](http://eigen.tuxfamily.org/)
 * [ROS](http://wiki.ros.org/), almost use indigo version.
 * [Ceres Solver](http://ceres-solver.org)
+* apt install libdw-dev
 
 # Calibration:
 
