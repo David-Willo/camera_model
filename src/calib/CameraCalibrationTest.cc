@@ -321,7 +321,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
 
         if ( image.channels( ) == 1 )
         {
-            cv::cvtColor( image, image, CV_GRAY2RGB );
+            cv::cvtColor( image, image, cv::COLOR_GRAY2RGB );
         }
 
         std::vector< cv::Point2f > estImagePoints;
@@ -341,7 +341,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         green,
                         show_unit * 2,
-                        CV_AA,
+                        cv::LINE_AA,
                         drawShiftBits );
 
             // red points is the estimated points
@@ -350,7 +350,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         red,
                         show_unit * 2,
-                        CV_AA,
+                        cv::LINE_AA,
                         drawShiftBits );
 
             float error = cv::norm( pObs - pEst );
@@ -361,7 +361,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         yellow,
                         show_unit * 2,
-                        CV_AA,
+                        cv::LINE_AA,
                         drawShiftBits );
 
             // Print each error of chessboard point
@@ -384,7 +384,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
                      show_unit / 2,
                      cv::Scalar( 0, 100, 255 ),
                      show_unit,
-                     CV_AA );
+                     cv::LINE_AA );
 
         cv::putText( image,
                      imageNames.at( i ),
@@ -393,7 +393,7 @@ CameraCalibrationTest::drawResults( std::vector< cv::Mat >& images,
                      show_unit / 2,
                      cv::Scalar( 0, 100, 255 ),
                      show_unit,
-                     CV_AA );
+                     cv::LINE_AA);
     }
 }
 

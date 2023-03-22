@@ -329,7 +329,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
 
         if ( image.channels( ) == 1 )
         {
-            cv::cvtColor( image, image, CV_GRAY2RGB );
+            cv::cvtColor( image, image, cv::COLOR_GRAY2RGB );
         }
 
         std::vector< cv::Point2f > estImagePoints;
@@ -349,7 +349,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         green,
                         show_unit * 2,
-                        cv::LINE_AA, // CV_AA,
+                        cv::LINE_AA, // cv::LINE_AA,
                         drawShiftBits );
 
             // red points is the estimated points
@@ -358,7 +358,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         red,
                         show_unit * 2,
-                        cv::LINE_AA, // CV_AA,
+                        cv::LINE_AA, // cv::LINE_AA,
                         drawShiftBits );
 
             float error = cv::norm( pObs - pEst );
@@ -369,7 +369,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
                         r_show,
                         yellow,
                         show_unit * 2,
-                        cv::LINE_AA, // CV_AA,
+                        cv::LINE_AA, // cv::LINE_AA,
                         drawShiftBits );
 
             // Print each error of chessboard point
@@ -392,7 +392,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
                      show_unit / 2,
                      cv::Scalar( 0, 100, 255 ),
                      show_unit,
-                     CV_AA );
+                     cv::LINE_AA );
 
         cv::putText( image,
                      imageNames.at( i ),
@@ -401,7 +401,7 @@ CameraCalibration::drawResults( std::vector< cv::Mat >& images,
                      show_unit / 2,
                      cv::Scalar( 0, 100, 255 ),
                      show_unit,
-                     CV_AA );
+                     cv::LINE_AA );
     }
 }
 

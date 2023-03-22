@@ -5,6 +5,7 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <vector>
 
 namespace aslam
@@ -184,7 +185,7 @@ GridCalibrationTargetAprilgrid::computeObservation( const cv::Mat& image,
                 cvStartWindowThread( );
 
                 cv::Mat imageCopy = image.clone( );
-                cv::cvtColor( imageCopy, imageCopy, CV_GRAY2RGB );
+                cv::cvtColor( imageCopy, imageCopy, cv::COLOR_GRAY2RGB );
 
                 // mark all duplicate tags in image
                 for ( int j = 0; i < detections.size( ) - 1; i++ )
@@ -261,7 +262,7 @@ GridCalibrationTargetAprilgrid::computeObservation( const cv::Mat& image,
     {
         // image with refined (blue) and raw corners (red)
         cv::Mat imageCopy1 = image.clone( );
-        cv::cvtColor( imageCopy1, imageCopy1, CV_GRAY2RGB );
+        cv::cvtColor( imageCopy1, imageCopy1, cv::COLOR_GRAY2RGB );
         for ( unsigned i = 0; i < detections.size( ); i++ )
             for ( unsigned j = 0; j < 4; j++ )
             {
@@ -293,7 +294,7 @@ GridCalibrationTargetAprilgrid::computeObservation( const cv::Mat& image,
 
         /* copy image for modification */
         cv::Mat imageCopy2 = image.clone( );
-        cv::cvtColor( imageCopy2, imageCopy2, CV_GRAY2RGB );
+        cv::cvtColor( imageCopy2, imageCopy2, cv::COLOR_GRAY2RGB );
         /* highlight detected tags in image */
         for ( unsigned i = 0; i < detections.size( ); i++ )
         {
